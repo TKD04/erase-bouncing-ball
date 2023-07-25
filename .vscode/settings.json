@@ -1,0 +1,18 @@
+{
+  "editor.formatOnSave": true,
+  "files.autoGuessEncoding": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.linkedEditing": true,
+  "emmet.variables": {
+    "lang": "ja"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
+}
