@@ -14,7 +14,8 @@
     }
   ],
   "ignorePatterns": [
-    "/dist/"
+    "/dist/",
+    "/webpack.config.js"
   ],
   "plugins": [
     "@typescript-eslint"
