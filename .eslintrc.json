@@ -4,22 +4,13 @@
       "env": {
         "jest": true
       },
-      "plugins": [
-        "jest"
-      ],
+      "plugins": ["jest"],
       "extends": "plugin:jest/all",
-      "files": [
-        "*.test.ts"
-      ]
+      "files": ["*.test.ts"]
     }
   ],
-  "ignorePatterns": [
-    "/dist/",
-    "/webpack.config.js"
-  ],
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "ignorePatterns": ["/dist/", "/webpack.config.js"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "airbnb-base",
     "airbnb-typescript/base",
@@ -33,10 +24,7 @@
   },
   "rules": {
     "@typescript-eslint/no-import-type-side-effects": "error",
-    "import/consistent-type-specifier-style": [
-      "error",
-      "prefer-top-level"
-    ],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
     "@typescript-eslint/consistent-type-imports": "error"
   },
   "parserOptions": {
