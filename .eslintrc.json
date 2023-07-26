@@ -15,6 +15,7 @@
   ],
   "ignorePatterns": [
     "/dist/",
+    "/docs/",
     "/webpack.config.js"
   ],
   "plugins": [
