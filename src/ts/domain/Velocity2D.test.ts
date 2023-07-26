@@ -11,38 +11,34 @@ describe("class Velocity2D", () => {
   describe("get x()", () => {
     it("x() should be equal to 2", () => {
       expect.hasAssertions();
-      const x = 2;
-      const velocity = new Velocity2D(x, 0);
-      expect(velocity.x).toBe(x);
+      const velocity = new Velocity2D(2, 0);
+      expect(velocity.x).toBe(2);
     });
   });
 
   describe("get y()", () => {
     it("y() should be equal to 4", () => {
       expect.hasAssertions();
-      const y = 4;
-      const velocity = new Velocity2D(0, y);
-      expect(velocity.y).toBe(y);
+      const velocity = new Velocity2D(0, 4);
+      expect(velocity.y).toBe(4);
     });
   });
 
   describe("bounceX()", () => {
     it("x should be equal to -x", () => {
       expect.hasAssertions();
-      const x = 2;
-      const velocity = new Velocity2D(x, 4);
+      const velocity = new Velocity2D(2, 4);
       velocity.bounceX();
-      expect(velocity.x).toBe(-x);
+      expect(velocity.x).toBe(-2);
     });
   });
 
   describe("bounceY()", () => {
     it("y should be equal to -y", () => {
       expect.hasAssertions();
-      const y = 4;
-      const velocity = new Velocity2D(2, y);
+      const velocity = new Velocity2D(2, 4);
       velocity.bounceY();
-      expect(velocity.y).toBe(-y);
+      expect(velocity.y).toBe(-4);
     });
   });
 });

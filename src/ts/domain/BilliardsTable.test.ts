@@ -35,18 +35,16 @@ describe("class BilliardsTable", () => {
   describe("get width()", () => {
     it("width should be equal to 160", () => {
       expect.hasAssertions();
-      const width = 160;
-      const billiardsTable = new BilliardsTable(width, 90);
-      expect(billiardsTable.width).toBe(width);
+      const billiardsTable = new BilliardsTable(160, 90);
+      expect(billiardsTable.width).toBe(160);
     });
   });
 
   describe("get height()", () => {
     it("height should be equal to 90", () => {
       expect.hasAssertions();
-      const height = 90;
-      const billiardsTable = new BilliardsTable(160, height);
-      expect(billiardsTable.height).toBe(height);
+      const billiardsTable = new BilliardsTable(160, 90);
+      expect(billiardsTable.height).toBe(90);
     });
   });
 });

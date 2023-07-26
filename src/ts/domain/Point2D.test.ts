@@ -12,30 +12,27 @@ describe("class Point2D", () => {
   describe("get x()", () => {
     it("x should be equal to 2", () => {
       expect.hasAssertions();
-      const x = 2;
-      const point = new Point2D(x, 0);
-      expect(point.x).toBe(x);
+      const point = new Point2D(2, 0);
+      expect(point.x).toBe(2);
     });
   });
 
   describe("get y()", () => {
     it("y should be equal to 4", () => {
       expect.hasAssertions();
-      const y = 4;
-      const point = new Point2D(0, y);
-      expect(point.y).toBe(y);
+      const point = new Point2D(0, 4);
+      expect(point.y).toBe(4);
     });
   });
 
   describe("move()", () => {
     it("[x, y] should be [2, 4]", () => {
       expect.assertions(2);
-      const [x, y] = [2, 4];
-      const velocity = new Velocity2D(x, y);
+      const velocity = new Velocity2D(2, 4);
       const point = new Point2D(0, 0);
       point.move(velocity);
-      expect(point.x).toBe(x);
-      expect(point.y).toBe(y);
+      expect(point.x).toBe(2);
+      expect(point.y).toBe(4);
     });
   });
 });
