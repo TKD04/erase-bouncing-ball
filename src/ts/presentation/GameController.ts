@@ -43,7 +43,6 @@ export default class GameController {
         this.#BILLIARDS_TABLE.width,
         this.#BILLIARDS_TABLE.height
       );
-
       this.#BALLS.forEach((ball) => {
         this.#drawBall(ball);
         ball.move();
