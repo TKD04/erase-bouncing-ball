@@ -55,13 +55,7 @@ export default class GameController {
 
   start(): void {
     const drawFrame = (): void => {
-      this.#CTX.fillStyle = "rgba(0, 0, 0, 0.25)";
-      this.#CTX.fillRect(
-        0,
-        0,
-        this.#BILLIARDS_TABLE.width,
-        this.#BILLIARDS_TABLE.height
-      );
+      this.#drawBilliardsTable();
       this.#ALIVE_BALL_REPOSITORY.getAll().forEach((ball) => {
         this.#drawBall(ball);
         ball.move();
@@ -74,6 +68,16 @@ export default class GameController {
     );
 
     drawFrame();
+  }
+
+  #drawBilliardsTable(): void {
+    this.#CTX.fillStyle = "rgba(0, 0, 0, 0.25)";
+    this.#CTX.fillRect(
+      0,
+      0,
+      this.#BILLIARDS_TABLE.width,
+      this.#BILLIARDS_TABLE.height
+    );
   }
 
   #drawBall(ball: Ball): void {
