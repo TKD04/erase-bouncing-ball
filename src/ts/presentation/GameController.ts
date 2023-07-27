@@ -36,16 +36,17 @@ export default class GameController {
       throw new TypeError("spanNumberOfBalls must be HTMLSpanElement.");
     }
 
-    canvasBilliardsTable.width = window.innerWidth;
-    canvasBilliardsTable.height = window.innerHeight;
+    // The dimention of the HTMLCanvasElement must be set before getting ctx.
+    const { innerWidth, innerHeight } = window;
+    canvasBilliardsTable.width = innerWidth;
+    canvasBilliardsTable.height = innerHeight;
     const ctx = canvasBilliardsTable.getContext("2d");
-    const { width, height } = canvasBilliardsTable;
     if (ctx === null) {
       throw new TypeError("ctx must be CanvasRenderingContext2D");
     }
 
     this.#CTX = ctx;
-    this.#BILLIARDS_TABLE = new BilliardsTable(width, height);
+    this.#BILLIARDS_TABLE = new BilliardsTable(innerWidth, innerHeight);
     this.#ALIVE_BALL_REPOSITORY = createRandomBalls(this.#BILLIARDS_TABLE, 25);
     this.#NUMBER_OF_BALLS_LEFT_PRESENTER = new NumberOfBallsLeftPresenter(
       spanNumberOfBallsLeft
