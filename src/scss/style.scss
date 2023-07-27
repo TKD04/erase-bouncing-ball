@@ -10,6 +10,7 @@
 }
 
 body {
+  position: relative;
   width: 100%;
   height: 100%;
   margin: 0;
@@ -19,4 +20,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   overflow-y: hidden;
+}
+
+p {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
 }
