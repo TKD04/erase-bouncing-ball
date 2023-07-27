@@ -5,5 +5,5 @@ export default interface IBallRepository {
 
   remove(ballId: number): void;
 
-  getAll(): ReadonlyMap<number, Ball>;
+  getAll(): ReadonlyArray<Ball>;
 }

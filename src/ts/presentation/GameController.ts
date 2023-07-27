@@ -1,5 +1,6 @@
 import type Ball from "../domain/Ball";
 import BilliardsTable from "../domain/BilliardsTable";
+import type AliveBallRepository from "../infrastructure/AliveBallRepository";
 import createRandomBalls from "../usecase/createRandomBalls";
 
 const isHtmlCanvasElement = (el: HTMLElement): el is HTMLCanvasElement =>
@@ -10,7 +11,7 @@ export default class GameController {
 
   readonly #BILLIARDS_TABLE: BilliardsTable;
 
-  readonly #BALLS: Ball[];
+  readonly #ALIVE_BALL_REPOSITORY: AliveBallRepository;
 
   constructor() {
     const canvasBilliardsTable = document.getElementById("js-billiards-table");
@@ -31,7 +32,7 @@ export default class GameController {
 
     this.#CTX = ctx;
     this.#BILLIARDS_TABLE = new BilliardsTable(width, height);
-    this.#BALLS = createRandomBalls(this.#BILLIARDS_TABLE, 25);
+    this.#ALIVE_BALL_REPOSITORY = createRandomBalls(this.#BILLIARDS_TABLE, 25);
   }
 
   start(): void {
@@ -43,7 +44,7 @@ export default class GameController {
         this.#BILLIARDS_TABLE.width,
         this.#BILLIARDS_TABLE.height
       );
-      this.#BALLS.forEach((ball) => {
+      this.#ALIVE_BALL_REPOSITORY.getAll().forEach((ball) => {
         this.#drawBall(ball);
         ball.move();
       });
