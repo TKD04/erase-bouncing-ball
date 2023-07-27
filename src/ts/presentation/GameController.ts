@@ -56,10 +56,7 @@ export default class GameController {
   start(): void {
     const drawFrame = (): void => {
       this.#drawBilliardsTable();
-      this.#ALIVE_BALL_REPOSITORY.getAll().forEach((ball) => {
-        this.#drawBall(ball);
-        ball.move();
-      });
+      this.#drawBalls();
 
       requestAnimationFrame(drawFrame);
     };
@@ -78,6 +75,13 @@ export default class GameController {
       this.#BILLIARDS_TABLE.width,
       this.#BILLIARDS_TABLE.height
     );
+  }
+
+  #drawBalls(): void {
+    this.#ALIVE_BALL_REPOSITORY.getAll().forEach((ball) => {
+      this.#drawBall(ball);
+      ball.move();
+    });
   }
 
   #drawBall(ball: Ball): void {
