@@ -13,7 +13,7 @@ export default (
   const balls: Ball[] = [];
 
   for (let i = 0; i < numberOfBalls; i += 1) {
-    const ball = createRandomBall(billiardsTable);
+    const ball = createRandomBall(billiardsTable, i);
     balls.push(ball);
   }
 

@@ -5,7 +5,7 @@ import Velocity2D from "../domain/Velocity2D";
 import getRandomLightRGB from "./getRandomLightRGB";
 import getRandomNumber from "./getRandomNumber";
 
-export default (billiardTable: BilliardsTable) => {
+export default (billiardTable: BilliardsTable, id: number) => {
   const { width, height } = billiardTable;
   const [velMin, velMax] = [-7, 7];
   const radius = getRandomNumber(10, 20);
@@ -21,6 +21,7 @@ export default (billiardTable: BilliardsTable) => {
       getRandomNumber(velMin, velMax)
     ),
     radius,
-    getRandomLightRGB()
+    getRandomLightRGB(),
+    id
   );
 };

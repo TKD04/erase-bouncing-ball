@@ -14,12 +14,15 @@ export default class Ball {
 
   readonly #COLOR: RGB;
 
+  readonly #ID: number;
+
   constructor(
     billiardsTable: BilliardsTable,
     point: Point2D,
     velocity: Velocity2D,
     radius: number,
-    color: RGB
+    color: RGB,
+    id: number
   ) {
     if (radius <= 0) {
       throw new RangeError("radius must be greater than zero.");
@@ -30,6 +33,7 @@ export default class Ball {
     this.#VELOCITY = velocity;
     this.#RADIUS = radius;
     this.#COLOR = color;
+    this.#ID = id;
   }
 
   get x(): number {
@@ -46,6 +50,10 @@ export default class Ball {
 
   get color(): string {
     return this.#COLOR.toString();
+  }
+
+  get id(): number {
+    return this.#ID;
   }
 
   move(): void {

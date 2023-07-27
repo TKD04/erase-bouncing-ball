@@ -15,19 +15,19 @@ describe("class Ball", () => {
     it("should be instance of Ball", () => {
       expect.hasAssertions();
       expect(
-        new Ball(billiardsTable, coordinate, velocity, 1, color)
+        new Ball(billiardsTable, coordinate, velocity, 1, color, 1)
       ).toBeInstanceOf(Ball);
     });
     it("should throw error when radius is zero", () => {
       expect.hasAssertions();
       expect(
-        () => new Ball(billiardsTable, coordinate, velocity, 0, color)
+        () => new Ball(billiardsTable, coordinate, velocity, 0, color, 1)
       ).toThrow(new RangeError("radius must be greater than zero."));
     });
     it("should throw error when radius is negative", () => {
       expect.hasAssertions();
       expect(
-        () => new Ball(billiardsTable, coordinate, velocity, -1, color)
+        () => new Ball(billiardsTable, coordinate, velocity, -1, color, 1)
       ).toThrow(new RangeError("radius must be greater than zero."));
     });
   });
@@ -35,7 +35,7 @@ describe("class Ball", () => {
   describe("get x()", () => {
     it("x should be equal to zero", () => {
       expect.hasAssertions();
-      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color);
+      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color, 1);
       expect(ball.x).toBe(50);
     });
   });
@@ -43,7 +43,7 @@ describe("class Ball", () => {
   describe("get y()", () => {
     it("y should be equal to zero", () => {
       expect.hasAssertions();
-      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color);
+      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color, 1);
       expect(ball.y).toBe(50);
     });
   });
@@ -51,7 +51,7 @@ describe("class Ball", () => {
   describe("get radius()", () => {
     it("radius should be equal to 1", () => {
       expect.hasAssertions();
-      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color);
+      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color, 1);
       expect(ball.radius).toBe(1);
     });
   });
@@ -59,15 +59,23 @@ describe("class Ball", () => {
   describe("get color()", () => {
     it("color should be equal to rgb(225, 225, 225)", () => {
       expect.hasAssertions();
-      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color);
+      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color, 1);
       expect(ball.color).toBe("rgb(225, 225, 225)");
+    });
+  });
+
+  describe("get id()", () => {
+    it("id should be equal to 1", () => {
+      expect.hasAssertions();
+      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color, 1);
+      expect(ball.id).toBe(1);
     });
   });
 
   describe("move()", () => {
     it("[x, y] should be equal to [5, 5]", () => {
       expect.assertions(2);
-      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color);
+      const ball = new Ball(billiardsTable, coordinate, velocity, 1, color, 1);
       ball.move();
       expect(ball.x).toBe(55);
       expect(ball.y).toBe(55);
