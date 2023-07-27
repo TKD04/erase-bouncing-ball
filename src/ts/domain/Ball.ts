@@ -6,7 +6,7 @@ import type Velocity2D from "./Velocity2D";
 export default class Ball {
   readonly #BILLIARDS_TABLE: BilliardsTable;
 
-  readonly #COORDINATE: Point2D;
+  readonly #POINT: Point2D;
 
   readonly #VELOCITY: Velocity2D;
 
@@ -16,7 +16,7 @@ export default class Ball {
 
   constructor(
     billiardsTable: BilliardsTable,
-    coordinate: Point2D,
+    point: Point2D,
     velocity: Velocity2D,
     radius: number,
     color: RGB
@@ -26,18 +26,18 @@ export default class Ball {
     }
 
     this.#BILLIARDS_TABLE = billiardsTable;
-    this.#COORDINATE = coordinate;
+    this.#POINT = point;
     this.#VELOCITY = velocity;
     this.#RADIUS = radius;
     this.#COLOR = color;
   }
 
   get x(): number {
-    return this.#COORDINATE.x;
+    return this.#POINT.x;
   }
 
   get y(): number {
-    return this.#COORDINATE.y;
+    return this.#POINT.y;
   }
 
   get radius(): number {
@@ -55,11 +55,11 @@ export default class Ball {
     if (this.#isOverBilliardsTableY()) {
       this.#VELOCITY.bounceY();
     }
-    this.#COORDINATE.move(this.#VELOCITY);
+    this.#POINT.move(this.#VELOCITY);
   }
 
   #isOverBilliardsTableX(): boolean {
-    const { x } = this.#COORDINATE;
+    const { x } = this.#POINT;
     const radius = this.#RADIUS;
     const { width } = this.#BILLIARDS_TABLE;
 
@@ -71,7 +71,7 @@ export default class Ball {
   }
 
   #isOverBilliardsTableY(): boolean {
-    const { y } = this.#COORDINATE;
+    const { y } = this.#POINT;
     const radius = this.#RADIUS;
     const { height } = this.#BILLIARDS_TABLE;
 
