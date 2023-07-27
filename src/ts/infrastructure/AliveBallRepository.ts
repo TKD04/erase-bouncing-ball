@@ -4,14 +4,8 @@ import type IBallRepository from "../domain/IBallRepository";
 export default class AliveBallRepository implements IBallRepository {
   #ballIdToBall: Map<number, Ball> = new Map();
 
-  getAll(): ReadonlyArray<Ball> {
-    const balls: Ball[] = [];
-
-    this.#ballIdToBall.forEach((ball) => {
-      balls.push(ball);
-    });
-
-    return balls;
+  getAll(): ReadonlyMap<number, Ball> {
+    return this.#ballIdToBall;
   }
 
   add(ballId: number, ball: Ball): void {
