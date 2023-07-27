@@ -1,7 +1,7 @@
 import type Ball from "./Ball";
 
 export default interface IBallRepository {
-  getAll(): ReadonlyMap<number, Ball>;
+  getAll(): ReadonlyArray<Ball>;
 
   add(ballId: number, ball: Ball): void;
 
