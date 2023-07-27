@@ -15,4 +15,8 @@ export default class AliveBallRepository implements IBallRepository {
   remove(ballId: number): void {
     this.#ballIdToBall.delete(ballId);
   }
+
+  length(): number {
+    return this.#ballIdToBall.size;
+  }
 }

@@ -6,4 +6,6 @@ export default interface IBallRepository {
   add(ballId: number, ball: Ball): void;
 
   remove(ballId: number): void;
+
+  length(): number;
 }
