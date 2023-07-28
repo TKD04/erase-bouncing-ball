@@ -67,19 +67,23 @@ export default class GameController {
     };
     window.addEventListener("keydown", (e) => {
       switch (e.key) {
-        case "w": {
+        case "w":
+        case "ArrowUp": {
           this.#OWN_CIRCLE.moveToUp();
           break;
         }
-        case "a": {
+        case "a":
+        case "ArrowLeft": {
           this.#OWN_CIRCLE.moveToLeft();
           break;
         }
-        case "s": {
+        case "s":
+        case "ArrowDown": {
           this.#OWN_CIRCLE.moveToDown();
           break;
         }
-        case "d": {
+        case "d":
+        case "ArrowRight": {
           this.#OWN_CIRCLE.moveToRight();
           break;
         }
