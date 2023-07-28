@@ -3,7 +3,7 @@ import RGB from "./RGB";
 
 describe("class RGB", () => {
   describe("constructor()", () => {
-    it("should be instance of RGB", () => {
+    it("should be an instance of RGB", () => {
       expect.hasAssertions();
       const red = new Color(225);
       const green = new Color(225);

@@ -2,11 +2,11 @@ import Color from "./Color";
 
 describe("class Color", () => {
   describe("constructor()", () => {
-    it("should be instace of Color when color is zero", () => {
+    it("should be an instace of Color when color is zero", () => {
       expect.hasAssertions();
       expect(new Color(0)).toBeInstanceOf(Color);
     });
-    it("should be instace of Color when color is 255", () => {
+    it("should be an instace of Color when color is 255", () => {
       expect.hasAssertions();
       expect(new Color(255)).toBeInstanceOf(Color);
     });

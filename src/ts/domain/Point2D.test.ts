@@ -3,7 +3,7 @@ import Velocity2D from "./Velocity2D";
 
 describe("class Point2D", () => {
   describe("constructor()", () => {
-    it("should be instance of Point2D", () => {
+    it("should be an instance of Point2D", () => {
       expect.hasAssertions();
       expect(new Point2D(0, 0)).toBeInstanceOf(Point2D);
     });

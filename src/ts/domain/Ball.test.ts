@@ -12,7 +12,7 @@ const color = new RGB(new Color(225), new Color(225), new Color(225));
 
 describe("class Ball", () => {
   describe("constructor()", () => {
-    it("should be instance of Ball", () => {
+    it("should be an instance of Ball", () => {
       expect.hasAssertions();
       expect(
         new Ball(billiardsTable, coordinate, velocity, 1, color, 1)

@@ -2,7 +2,7 @@ import BilliardsTable from "./BilliardsTable";
 
 describe("class BilliardsTable", () => {
   describe("constructor()", () => {
-    it("should be instance of BilliardsTable", () => {
+    it("should be an instance of BilliardsTable", () => {
       expect.hasAssertions();
       expect(new BilliardsTable(160, 90)).toBeInstanceOf(BilliardsTable);
     });
