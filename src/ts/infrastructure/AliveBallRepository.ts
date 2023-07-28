@@ -13,6 +13,10 @@ export default class AliveBallRepository implements IBallRepository {
   }
 
   remove(ballId: number): void {
+    if (!this.#ballIdToBall.has(ballId)) {
+      throw new RangeError("ballId must be in the keys.");
+    }
+
     this.#ballIdToBall.delete(ballId);
   }
 
