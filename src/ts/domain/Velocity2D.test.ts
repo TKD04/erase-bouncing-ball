@@ -33,11 +33,11 @@ describe("class Velocity2D", () => {
     });
   });
 
-  describe("bounceY()", () => {
+  describe("bounceBackY()", () => {
     it("y should be equal to -y", () => {
       expect.hasAssertions();
       const velocity = new Velocity2D(2, 4);
-      velocity.bounceY();
+      velocity.bounceBackY();
       expect(velocity.y).toBe(-4);
     });
   });

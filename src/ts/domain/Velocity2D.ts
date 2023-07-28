@@ -20,7 +20,7 @@ export default class Velocity2D {
     this.#x = -this.#x;
   }
 
-  bounceY(): void {
+  bounceBackY(): void {
     this.#y = -this.#y;
   }
 }

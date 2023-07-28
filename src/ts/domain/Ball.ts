@@ -61,7 +61,7 @@ export default class Ball {
       this.#VELOCITY.bounceBackX();
     }
     if (this.#isOverBilliardsTableY()) {
-      this.#VELOCITY.bounceY();
+      this.#VELOCITY.bounceBackY();
     }
     this.#POINT.move(this.#VELOCITY);
   }
