@@ -6,25 +6,25 @@ describe("class BilliardsTable", () => {
       expect.hasAssertions();
       expect(new BilliardsTable(160, 90)).toBeInstanceOf(BilliardsTable);
     });
-    it("should throw error when width is zero", () => {
+    it("should throw an error when width is zero", () => {
       expect.hasAssertions();
       expect(() => new BilliardsTable(0, 90)).toThrow(
         new RangeError("width must be greater than zero.")
       );
     });
-    it("should throw error when width is negative", () => {
+    it("should throw an error when width is negative", () => {
       expect.hasAssertions();
       expect(() => new BilliardsTable(-160, 90)).toThrow(
         new RangeError("width must be greater than zero.")
       );
     });
-    it("should throw error when height is zero", () => {
+    it("should throw an error when height is zero", () => {
       expect.hasAssertions();
       expect(() => new BilliardsTable(160, 0)).toThrow(
         new RangeError("height must be greater than zero.")
       );
     });
-    it("should throw error when height is negative", () => {
+    it("should throw an error when height is negative", () => {
       expect.hasAssertions();
       expect(() => new BilliardsTable(160, -90)).toThrow(
         new RangeError("height must be greater than zero.")

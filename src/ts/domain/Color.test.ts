@@ -10,13 +10,13 @@ describe("class Color", () => {
       expect.hasAssertions();
       expect(new Color(255)).toBeInstanceOf(Color);
     });
-    it("should throw error when color is negative", () => {
+    it("should throw an error when color is negative", () => {
       expect.hasAssertions();
       expect(() => new Color(-1)).toThrow(
         new RangeError("value must be in the range 0-255.")
       );
     });
-    it("should throw error when color is 256", () => {
+    it("should throw an error when color is 256", () => {
       expect.hasAssertions();
       expect(() => new Color(256)).toThrow(
         new RangeError("value must be in the range 0-255.")

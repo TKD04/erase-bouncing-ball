@@ -18,13 +18,13 @@ describe("class Ball", () => {
         new Ball(billiardsTable, coordinate, velocity, 1, color, 1)
       ).toBeInstanceOf(Ball);
     });
-    it("should throw error when radius is zero", () => {
+    it("should throw an error when radius is zero", () => {
       expect.hasAssertions();
       expect(
         () => new Ball(billiardsTable, coordinate, velocity, 0, color, 1)
       ).toThrow(new RangeError("radius must be greater than zero."));
     });
-    it("should throw error when radius is negative", () => {
+    it("should throw an error when radius is negative", () => {
       expect.hasAssertions();
       expect(
         () => new Ball(billiardsTable, coordinate, velocity, -1, color, 1)
