@@ -112,9 +112,27 @@ export default class GameController {
 
   #drawBalls(): void {
     this.#ALIVE_BALL_REPOSITORY.getAll().forEach((ball) => {
+      if (this.#isColliedWithOwnCircle(ball)) {
+        this.#ALIVE_BALL_REPOSITORY.remove(ball.id);
+        this.#NUMBER_OF_BALLS_LEFT_PRESENTER.render(
+          this.#ALIVE_BALL_REPOSITORY.length()
+        );
+      }
       this.#drawBall(ball);
       ball.move();
     });
+  }
+
+  #isColliedWithOwnCircle(ball: Ball): boolean {
+    const dx = this.#OWN_CIRCLE.x - ball.x;
+    const dy = this.#OWN_CIRCLE.y - ball.y;
+    const distance = Math.sqrt(dx ** 2 + dy ** 2);
+
+    if (distance < this.#OWN_CIRCLE.radius + ball.radius) {
+      return true;
+    }
+
+    return false;
   }
 
   #drawBall(ball: Ball): void {
