@@ -1,5 +1,6 @@
 import type Ball from "../domain/Ball";
 import BilliardsTable from "../domain/BilliardsTable";
+import OwnCircle from "../domain/OwnCircle";
 import type AliveBallRepository from "../infrastructure/AliveBallRepository";
 import createRandomBalls from "../usecase/createRandomBalls";
 import NumberOfBallsLeftPresenter from "./NumberOfBallsLeftPresenter";
@@ -15,6 +16,8 @@ export default class GameController {
   readonly #BILLIARDS_TABLE: BilliardsTable;
 
   readonly #ALIVE_BALL_REPOSITORY: AliveBallRepository;
+
+  readonly #OWN_CIRCLE: OwnCircle;
 
   readonly #NUMBER_OF_BALLS_LEFT_PRESENTER: NumberOfBallsLeftPresenter;
 
@@ -48,6 +51,7 @@ export default class GameController {
     this.#CTX = ctx;
     this.#BILLIARDS_TABLE = new BilliardsTable(innerWidth, innerHeight);
     this.#ALIVE_BALL_REPOSITORY = createRandomBalls(this.#BILLIARDS_TABLE, 25);
+    this.#OWN_CIRCLE = new OwnCircle(this.#BILLIARDS_TABLE);
     this.#NUMBER_OF_BALLS_LEFT_PRESENTER = new NumberOfBallsLeftPresenter(
       spanNumberOfBallsLeft
     );
@@ -57,9 +61,34 @@ export default class GameController {
     const drawFrame = (): void => {
       this.#drawBilliardsTable();
       this.#drawBalls();
+      this.#drawOwnCircle();
 
       requestAnimationFrame(drawFrame);
     };
+    window.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "w": {
+          this.#OWN_CIRCLE.moveToUp();
+          break;
+        }
+        case "a": {
+          this.#OWN_CIRCLE.moveToLeft();
+          break;
+        }
+        case "s": {
+          this.#OWN_CIRCLE.moveToDown();
+          break;
+        }
+        case "d": {
+          this.#OWN_CIRCLE.moveToRight();
+          break;
+        }
+        default: {
+          return;
+        }
+      }
+      this.#drawOwnCircle();
+    });
     this.#NUMBER_OF_BALLS_LEFT_PRESENTER.render(
       this.#ALIVE_BALL_REPOSITORY.length()
     );
@@ -89,5 +118,19 @@ export default class GameController {
     this.#CTX.fillStyle = ball.color;
     this.#CTX.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
     this.#CTX.fill();
+  }
+
+  #drawOwnCircle(): void {
+    this.#CTX.beginPath();
+    this.#CTX.lineWidth = 3;
+    this.#CTX.strokeStyle = this.#OWN_CIRCLE.color;
+    this.#CTX.arc(
+      this.#OWN_CIRCLE.x,
+      this.#OWN_CIRCLE.y,
+      this.#OWN_CIRCLE.radius,
+      0,
+      2 * Math.PI
+    );
+    this.#CTX.stroke();
   }
 }
