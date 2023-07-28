@@ -67,11 +67,10 @@ export default class Ball {
   }
 
   #isOverBilliardsTableX(): boolean {
-    const { x } = this.#POINT;
-    const radius = this.#RADIUS;
-    const { width } = this.#BILLIARDS_TABLE;
-
-    if (x - radius <= 0 || x + radius >= width) {
+    if (
+      this.#POINT.x - this.#RADIUS <= 0 ||
+      this.#POINT.x + this.#RADIUS >= this.#BILLIARDS_TABLE.width
+    ) {
       return true;
     }
 
@@ -79,11 +78,10 @@ export default class Ball {
   }
 
   #isOverBilliardsTableY(): boolean {
-    const { y } = this.#POINT;
-    const radius = this.#RADIUS;
-    const { height } = this.#BILLIARDS_TABLE;
-
-    if (y - radius <= 0 || y + radius >= height) {
+    if (
+      this.#POINT.y - this.#RADIUS <= 0 ||
+      this.#POINT.y + this.#RADIUS >= this.#BILLIARDS_TABLE.height
+    ) {
       return true;
     }
 
