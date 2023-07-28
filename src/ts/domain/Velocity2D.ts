@@ -16,7 +16,7 @@ export default class Velocity2D {
     return this.#y;
   }
 
-  bounceX(): void {
+  bounceBackX(): void {
     this.#x = -this.#x;
   }
 

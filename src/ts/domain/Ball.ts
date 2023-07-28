@@ -58,7 +58,7 @@ export default class Ball {
 
   move(): void {
     if (this.#isOverBilliardsTableX()) {
-      this.#VELOCITY.bounceX();
+      this.#VELOCITY.bounceBackX();
     }
     if (this.#isOverBilliardsTableY()) {
       this.#VELOCITY.bounceY();
