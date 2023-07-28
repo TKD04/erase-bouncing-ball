@@ -1,7 +1,7 @@
 import type Ball from "../domain/Ball";
 import BilliardsTable from "../domain/BilliardsTable";
+import type IBallRepository from "../domain/IBallRepository";
 import OwnCircle from "../domain/OwnCircle";
-import type AliveBallRepository from "../infrastructure/AliveBallRepository";
 import createRandomBalls from "../usecase/createRandomBalls";
 import NumberOfBallsLeftPresenter from "./NumberOfBallsLeftPresenter";
 
@@ -15,7 +15,7 @@ export default class GameController {
 
   readonly #BILLIARDS_TABLE: BilliardsTable;
 
-  readonly #ALIVE_BALL_REPOSITORY: AliveBallRepository;
+  readonly #ALIVE_BALL_REPOSITORY: IBallRepository;
 
   readonly #OWN_CIRCLE: OwnCircle;
 

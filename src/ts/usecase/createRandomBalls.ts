@@ -1,11 +1,12 @@
 import type BilliardsTable from "../domain/BilliardsTable";
+import type IBallRepository from "../domain/IBallRepository";
 import AliveBallRepository from "../infrastructure/AliveBallRepository";
 import createRandomBall from "./createRandomBall";
 
 export default (
   billiardsTable: BilliardsTable,
   numberOfBalls: number
-): AliveBallRepository => {
+): IBallRepository => {
   if (numberOfBalls <= 0) {
     throw new RangeError("numberOfBalls must be greater than zero.");
   }
