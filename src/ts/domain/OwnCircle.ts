@@ -82,8 +82,8 @@ export default class OwnCircle {
       return;
     }
     if (this.#willOverBilliardsTableLeft()) {
-      const diffBetweenCircleAndLeft = -this.#POINT.x + this.#RADIUS;
-      this.#POINT.move(new Velocity2D(diffBetweenCircleAndLeft, 0));
+      const diffBetweenCircleAndLeftWall = -this.#POINT.x + this.#RADIUS;
+      this.#POINT.move(new Velocity2D(diffBetweenCircleAndLeftWall, 0));
 
       return;
     }
