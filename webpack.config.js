@@ -90,10 +90,6 @@ module.exports = {
       }),
     ],
     runtimeChunk: "single",
-    splitChunks: {
-      name: "vendor",
-      chunks: "all",
-    },
     usedExports: true,
   },
   resolve: {
