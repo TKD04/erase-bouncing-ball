@@ -8,8 +8,8 @@
     "lint": "eslint .",
     "test": "jest",
     "format": "prettier . --write",
-    "build": "webpack --mode production -o ./docs",
-    "dev": "webpack serve --open --mode development --devtool eval-cheap-module-source-map"
+    "dev": "webpack serve --open --mode development --devtool eval-cheap-module-source-map",
+    "build": "webpack --mode production -o ./docs"
   },
   "keywords": [],
   "author": "",
