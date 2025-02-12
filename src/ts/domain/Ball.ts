@@ -4,17 +4,37 @@ import type RGB from "./RGB";
 import type Velocity2D from "./Velocity2D";
 
 export default class Ball {
+  get color(): string {
+    return this.#COLOR.toString();
+  }
+
+  get id(): number {
+    return this.#ID;
+  }
+
+  get radius(): number {
+    return this.#RADIUS;
+  }
+
+  get x(): number {
+    return this.#POINT.x;
+  }
+
+  get y(): number {
+    return this.#POINT.y;
+  }
+
   readonly #BILLIARDS_TABLE: BilliardsTable;
-
-  readonly #POINT: Point2D;
-
-  readonly #VELOCITY: Velocity2D;
-
-  readonly #RADIUS: number;
 
   readonly #COLOR: RGB;
 
   readonly #ID: number;
+
+  readonly #POINT: Point2D;
+
+  readonly #RADIUS: number;
+
+  readonly #VELOCITY: Velocity2D;
 
   constructor(
     billiardsTable: BilliardsTable,
@@ -34,26 +54,6 @@ export default class Ball {
     this.#RADIUS = radius;
     this.#COLOR = color;
     this.#ID = id;
-  }
-
-  get x(): number {
-    return this.#POINT.x;
-  }
-
-  get y(): number {
-    return this.#POINT.y;
-  }
-
-  get radius(): number {
-    return this.#RADIUS;
-  }
-
-  get color(): string {
-    return this.#COLOR.toString();
-  }
-
-  get id(): number {
-    return this.#ID;
   }
 
   move(): void {

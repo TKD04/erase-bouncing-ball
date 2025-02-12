@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("node:path");
 const TerserPlugin = require("terser-webpack-plugin");
 const PugPlugin = require("pug-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -7,11 +7,12 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const srcDir = path.resolve(__dirname, "src");
 
 module.exports = {
+  devServer: {
+    hot: true,
+    static: path.resolve(__dirname, "dist"),
+  },
   entry: {
     index: path.resolve(__dirname, "src/pug/index.pug"),
-  },
-  output: {
-    clean: true,
   },
   module: {
     rules: [
@@ -27,9 +28,9 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              url: false,
-              sourceMap: true,
               importLoaders: 2,
+              sourceMap: true,
+              url: false,
             },
           },
           {
@@ -49,10 +50,10 @@ module.exports = {
         ],
       },
       {
+        exclude: /[\\/]node_modules[\\/]/,
         include: srcDir,
         test: /\.tsx?$/i,
         use: "ts-loader",
-        exclude: /[\\/]node_modules[\\/]/,
       },
       {
         include: srcDir,
@@ -61,16 +62,6 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new PugPlugin({
-      css: {
-        filename: "./css/[name].[contenthash:8].css",
-      },
-      js: {
-        filename: "./js/[name].[contenthash:8].js",
-      },
-    }),
-  ],
   optimization: {
     minimizer: [
       new CssMinimizerPlugin(),
@@ -92,11 +83,20 @@ module.exports = {
     runtimeChunk: "single",
     usedExports: true,
   },
+  output: {
+    clean: true,
+  },
+  plugins: [
+    new PugPlugin({
+      css: {
+        filename: "./css/[name].[contenthash:8].css",
+      },
+      js: {
+        filename: "./js/[name].[contenthash:8].js",
+      },
+    }),
+  ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-  },
-  devServer: {
-    static: path.resolve(__dirname, "dist"),
-    hot: true,
   },
 };

@@ -1,11 +1,11 @@
 import type Color from "./Color";
 
 export default class RGB {
-  readonly #RED: Color;
+  readonly #BLUE: Color;
 
   readonly #GREEN: Color;
 
-  readonly #BLUE: Color;
+  readonly #RED: Color;
 
   constructor(red: Color, green: Color, blue: Color) {
     this.#RED = red;

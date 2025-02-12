@@ -1,4 +1,8 @@
 export default class Color {
+  get value(): number {
+    return this.#VALUE;
+  }
+
   readonly #VALUE: number;
 
   constructor(value: number) {
@@ -7,9 +11,5 @@ export default class Color {
     }
 
     this.#VALUE = value;
-  }
-
-  get value(): number {
-    return this.#VALUE;
   }
 }

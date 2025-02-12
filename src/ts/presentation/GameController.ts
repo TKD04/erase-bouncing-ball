@@ -5,26 +5,26 @@ import OwnCircle from "../domain/OwnCircle";
 import createRandomBalls from "../usecase/createRandomBalls";
 import NumberOfBallsLeftPresenter from "./NumberOfBallsLeftPresenter";
 
-const isHtmlCanvasElement = (el: HTMLElement): el is HTMLCanvasElement =>
-  typeof (<HTMLCanvasElement>el).height !== "undefined";
-const isHtmlSpanElement = (el: HTMLElement): el is HTMLSpanElement =>
-  typeof (<HTMLSpanElement>el).textContent !== "undefined";
+const isHtmlCanvasElement = (element: HTMLElement): element is HTMLCanvasElement =>
+  (element as HTMLCanvasElement).height !== undefined;
+const isHtmlSpanElement = (element: HTMLElement): element is HTMLSpanElement =>
+  (element as HTMLSpanElement).textContent !== undefined;
 
 export default class GameController {
-  readonly #CTX: CanvasRenderingContext2D;
+  readonly #ALIVE_BALL_REPOSITORY: IBallRepository;
 
   readonly #BILLIARDS_TABLE: BilliardsTable;
 
-  readonly #ALIVE_BALL_REPOSITORY: IBallRepository;
-
-  readonly #OWN_CIRCLE: OwnCircle;
+  readonly #CTX: CanvasRenderingContext2D;
 
   readonly #NUMBER_OF_BALLS_LEFT_PRESENTER: NumberOfBallsLeftPresenter;
 
+  readonly #OWN_CIRCLE: OwnCircle;
+
   constructor() {
-    const canvasBilliardsTable = document.getElementById("js-billiards-table");
-    const spanNumberOfBallsLeft = document.getElementById(
-      "js-number-of-balls-left"
+    const canvasBilliardsTable = document.querySelector("#js-billiards-table");
+    const spanNumberOfBallsLeft = document.querySelector(
+      "#js-number-of-balls-left"
     );
     if (
       canvasBilliardsTable === null ||
@@ -40,15 +40,15 @@ export default class GameController {
     }
 
     // The dimention of the HTMLCanvasElement must be set before getting ctx.
-    const { innerWidth, innerHeight } = window;
+    const { innerHeight, innerWidth } = globalThis;
     canvasBilliardsTable.width = innerWidth;
     canvasBilliardsTable.height = innerHeight;
-    const ctx = canvasBilliardsTable.getContext("2d");
-    if (ctx === null) {
+    const context = canvasBilliardsTable.getContext("2d");
+    if (context === null) {
       throw new TypeError("ctx must be CanvasRenderingContext2D");
     }
 
-    this.#CTX = ctx;
+    this.#CTX = context;
     this.#BILLIARDS_TABLE = new BilliardsTable(innerWidth, innerHeight);
     this.#ALIVE_BALL_REPOSITORY = createRandomBalls(this.#BILLIARDS_TABLE, 25);
     this.#OWN_CIRCLE = new OwnCircle(this.#BILLIARDS_TABLE);
@@ -65,26 +65,26 @@ export default class GameController {
 
       requestAnimationFrame(drawFrame);
     };
-    window.addEventListener("keydown", (e) => {
+    globalThis.addEventListener("keydown", (e) => {
       switch (e.key) {
-        case "w":
-        case "ArrowUp": {
-          this.#OWN_CIRCLE.moveToUp();
-          break;
-        }
         case "a":
         case "ArrowLeft": {
           this.#OWN_CIRCLE.moveToLeft();
           break;
         }
-        case "s":
-        case "ArrowDown": {
+        case "ArrowDown":
+        case "s": {
           this.#OWN_CIRCLE.moveToDown();
           break;
         }
-        case "d":
-        case "ArrowRight": {
+        case "ArrowRight":
+        case "d": {
           this.#OWN_CIRCLE.moveToRight();
+          break;
+        }
+        case "ArrowUp":
+        case "w": {
+          this.#OWN_CIRCLE.moveToUp();
           break;
         }
         default: {
@@ -100,18 +100,15 @@ export default class GameController {
     drawFrame();
   }
 
-  #drawBilliardsTable(): void {
-    this.#CTX.fillStyle = "rgba(0, 0, 0, 0.25)";
-    this.#CTX.fillRect(
-      0,
-      0,
-      this.#BILLIARDS_TABLE.width,
-      this.#BILLIARDS_TABLE.height
-    );
+  #drawBall(ball: Ball): void {
+    this.#CTX.beginPath();
+    this.#CTX.fillStyle = ball.color;
+    this.#CTX.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
+    this.#CTX.fill();
   }
 
   #drawBalls(): void {
-    this.#ALIVE_BALL_REPOSITORY.getAll().forEach((ball) => {
+    for (const ball of this.#ALIVE_BALL_REPOSITORY.getAll()) {
       if (this.#isColliedWithOwnCircle(ball)) {
         this.#ALIVE_BALL_REPOSITORY.remove(ball.id);
         this.#NUMBER_OF_BALLS_LEFT_PRESENTER.render(
@@ -120,26 +117,17 @@ export default class GameController {
       }
       this.#drawBall(ball);
       ball.move();
-    });
-  }
-
-  #isColliedWithOwnCircle(ball: Ball): boolean {
-    const dx = this.#OWN_CIRCLE.x - ball.x;
-    const dy = this.#OWN_CIRCLE.y - ball.y;
-    const distance = Math.sqrt(dx ** 2 + dy ** 2);
-
-    if (distance < this.#OWN_CIRCLE.radius + ball.radius) {
-      return true;
     }
-
-    return false;
   }
 
-  #drawBall(ball: Ball): void {
-    this.#CTX.beginPath();
-    this.#CTX.fillStyle = ball.color;
-    this.#CTX.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
-    this.#CTX.fill();
+  #drawBilliardsTable(): void {
+    this.#CTX.fillStyle = "rgba(0, 0, 0, 0.25)";
+    this.#CTX.fillRect(
+      0,
+      0,
+      this.#BILLIARDS_TABLE.width,
+      this.#BILLIARDS_TABLE.height
+    );
   }
 
   #drawOwnCircle(): void {
@@ -154,5 +142,17 @@ export default class GameController {
       2 * Math.PI
     );
     this.#CTX.stroke();
+  }
+
+  #isColliedWithOwnCircle(ball: Ball): boolean {
+    const dx = this.#OWN_CIRCLE.x - ball.x;
+    const dy = this.#OWN_CIRCLE.y - ball.y;
+    const distance = Math.hypot(dx, dy);
+
+    if (distance < this.#OWN_CIRCLE.radius + ball.radius) {
+      return true;
+    }
+
+    return false;
   }
 }

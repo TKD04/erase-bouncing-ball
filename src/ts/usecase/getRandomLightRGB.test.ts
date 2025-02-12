@@ -1,3 +1,5 @@
+import { describe, expect, it } from '@jest/globals';
+
 import RGB from "../domain/RGB";
 import getRandomLightRGB from "./getRandomLightRGB";
 

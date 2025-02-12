@@ -5,33 +5,12 @@ import RGB from "./RGB";
 import Velocity2D from "./Velocity2D";
 
 export default class OwnCircle {
-  readonly #BILLIARDS_TABLE: BilliardsTable;
+  get color(): string {
+    return this.#COLOR.toString();
+  }
 
-  readonly #POINT: Point2D;
-
-  readonly #VELOCISTY: number = 20;
-
-  readonly #VELOCITIES = {
-    up: new Velocity2D(0, -this.#VELOCISTY),
-    down: new Velocity2D(0, this.#VELOCISTY),
-    left: new Velocity2D(-this.#VELOCISTY, 0),
-    right: new Velocity2D(this.#VELOCISTY, 0),
-  } as const;
-
-  readonly #RADIUS: number = 10;
-
-  readonly #COLOR: RGB = new RGB(
-    new Color(254),
-    new Color(254),
-    new Color(254)
-  );
-
-  constructor(billiardsTable: BilliardsTable) {
-    this.#BILLIARDS_TABLE = billiardsTable;
-    this.#POINT = new Point2D(
-      Math.floor(billiardsTable.width / 2),
-      Math.floor(billiardsTable.height / 2)
-    );
+  get radius(): number {
+    return this.#RADIUS;
   }
 
   get x(): number {
@@ -42,25 +21,33 @@ export default class OwnCircle {
     return this.#POINT.y;
   }
 
-  get radius(): number {
-    return this.#RADIUS;
-  }
+  readonly #BILLIARDS_TABLE: BilliardsTable;
 
-  get color(): string {
-    return this.#COLOR.toString();
-  }
+  readonly #COLOR: RGB = new RGB(
+    new Color(254),
+    new Color(254),
+    new Color(254)
+  );
 
-  moveToUp(): void {
-    if (this.#isOnBilliardsTableTop()) {
-      return;
-    }
-    if (this.#WillOverBilliardsTableTop()) {
-      const diffBetweenCircleAndTopWall = -this.#POINT.y + this.radius;
-      this.#POINT.move(new Velocity2D(0, diffBetweenCircleAndTopWall));
+  readonly #POINT: Point2D;
 
-      return;
-    }
-    this.#POINT.move(this.#VELOCITIES.up);
+  readonly #RADIUS: number = 10;
+
+  readonly #VELOCISTY: number = 20;
+
+  readonly #VELOCITIES = {
+    down: new Velocity2D(0, this.#VELOCISTY),
+    left: new Velocity2D(-this.#VELOCISTY, 0),
+    right: new Velocity2D(this.#VELOCISTY, 0),
+    up: new Velocity2D(0, -this.#VELOCISTY),
+  } as const;
+
+  constructor(billiardsTable: BilliardsTable) {
+    this.#BILLIARDS_TABLE = billiardsTable;
+    this.#POINT = new Point2D(
+      Math.floor(billiardsTable.width / 2),
+      Math.floor(billiardsTable.height / 2)
+    );
   }
 
   moveToDown(): void {
@@ -103,12 +90,17 @@ export default class OwnCircle {
     this.#POINT.move(this.#VELOCITIES.right);
   }
 
-  #isOnBilliardsTableTop(): boolean {
-    if (this.#POINT.y - this.#RADIUS === 0) {
-      return true;
+  moveToUp(): void {
+    if (this.#isOnBilliardsTableTop()) {
+      return;
     }
+    if (this.#WillOverBilliardsTableTop()) {
+      const diffBetweenCircleAndTopWall = -this.#POINT.y + this.radius;
+      this.#POINT.move(new Velocity2D(0, diffBetweenCircleAndTopWall));
 
-    return false;
+      return;
+    }
+    this.#POINT.move(this.#VELOCITIES.up);
   }
 
   #isOnBilliardsTableBottom(): boolean {
@@ -135,8 +127,8 @@ export default class OwnCircle {
     return false;
   }
 
-  #WillOverBilliardsTableTop(): boolean {
-    if (this.#POINT.y - this.#RADIUS - this.#VELOCISTY <= 0) {
+  #isOnBilliardsTableTop(): boolean {
+    if (this.#POINT.y - this.#RADIUS === 0) {
       return true;
     }
 
@@ -167,6 +159,14 @@ export default class OwnCircle {
       this.#POINT.x + this.#RADIUS + this.#VELOCISTY >=
       this.#BILLIARDS_TABLE.width
     ) {
+      return true;
+    }
+
+    return false;
+  }
+
+  #WillOverBilliardsTableTop(): boolean {
+    if (this.#POINT.y - this.#RADIUS - this.#VELOCISTY <= 0) {
       return true;
     }
 

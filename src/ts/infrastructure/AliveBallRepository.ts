@@ -2,14 +2,18 @@ import type Ball from "../domain/Ball";
 import type IBallRepository from "../domain/IBallRepository";
 
 export default class AliveBallRepository implements IBallRepository {
-  #ballIdToBall: Map<number, Ball> = new Map();
-
-  getAll(): ReadonlyArray<Ball> {
-    return [...this.#ballIdToBall.values()];
-  }
+  #ballIdToBall = new Map<number, Ball>();
 
   add(ballId: number, ball: Ball): void {
     this.#ballIdToBall.set(ballId, ball);
+  }
+
+  getAll(): readonly Ball[] {
+    return [...this.#ballIdToBall.values()];
+  }
+
+  length(): number {
+    return this.#ballIdToBall.size;
   }
 
   remove(ballId: number): void {
@@ -18,9 +22,5 @@ export default class AliveBallRepository implements IBallRepository {
     }
 
     this.#ballIdToBall.delete(ballId);
-  }
-
-  length(): number {
-    return this.#ballIdToBall.size;
   }
 }

@@ -13,9 +13,9 @@ export default (
 
   const aliveBallRepository = new AliveBallRepository();
 
-  for (let i = 0; i < numberOfBalls; i += 1) {
-    const ball = createRandomBall(billiardsTable, i);
-    aliveBallRepository.add(i, ball);
+  for (let index = 0; index < numberOfBalls; index += 1) {
+    const ball = createRandomBall(billiardsTable, index);
+    aliveBallRepository.add(index, ball);
   }
 
   return aliveBallRepository;

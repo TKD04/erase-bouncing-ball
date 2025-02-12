@@ -1,7 +1,15 @@
 export default class BilliardsTable {
-  readonly #WIDTH: number;
+  get height(): number {
+    return this.#HEIGHT;
+  }
+
+  get width(): number {
+    return this.#WIDTH;
+  }
 
   readonly #HEIGHT: number;
+
+  readonly #WIDTH: number;
 
   constructor(width: number, height: number) {
     if (width <= 0) {
@@ -13,13 +21,5 @@ export default class BilliardsTable {
 
     this.#WIDTH = width;
     this.#HEIGHT = height;
-  }
-
-  get width(): number {
-    return this.#WIDTH;
-  }
-
-  get height(): number {
-    return this.#HEIGHT;
   }
 }

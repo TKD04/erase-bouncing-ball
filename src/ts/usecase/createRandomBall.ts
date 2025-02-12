@@ -6,7 +6,7 @@ import getRandomLightRGB from "./getRandomLightRGB";
 import getRandomNumber from "./getRandomNumber";
 
 export default (billiardTable: BilliardsTable, id: number) => {
-  const { width, height } = billiardTable;
+  const { height, width } = billiardTable;
   const [velMin, velMax] = [-7, 7];
   const radius = getRandomNumber(10, 20);
 
