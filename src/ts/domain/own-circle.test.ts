@@ -1,7 +1,7 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import BilliardsTable from "./BilliardsTable";
-import OwnCircle from "./OwnCircle";
+import BilliardsTable from "./billiards-table";
+import OwnCircle from "./own-circle";
 
 describe("class OwnCircle", () => {
   describe("constructor()", () => {

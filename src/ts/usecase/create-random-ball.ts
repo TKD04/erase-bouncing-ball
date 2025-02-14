@@ -1,9 +1,9 @@
-import Ball from "../domain/Ball";
-import type BilliardsTable from "../domain/BilliardsTable";
-import Point2D from "../domain/Point2D";
-import Velocity2D from "../domain/Velocity2D";
-import getRandomLightRGB from "./getRandomLightRGB";
-import getRandomNumber from "./getRandomNumber";
+import Ball from "../domain/_ball";
+import type BilliardsTable from "../domain/billiards-table";
+import Point2D from "../domain/point-2d";
+import Velocity2D from "../domain/velocity-2d";
+import getRandomLightRGB from "./get-random-light-rgb";
+import getRandomNumber from "./get-random-number";
 
 export default (billiardTable: BilliardsTable, id: number) => {
   const { height, width } = billiardTable;

@@ -1,7 +1,7 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import RGB from "../domain/RGB";
-import getRandomLightRGB from "./getRandomLightRGB";
+import RGB from "../domain/_rgb";
+import getRandomLightRGB from "./get-random-light-rgb";
 
 describe("function getRandomLightRGB()", () => {
   it("should be an instance of RGB", () => {

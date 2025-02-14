@@ -1,11 +1,11 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import Ball from "./Ball";
-import BilliardsTable from "./BilliardsTable";
-import Color from "./Color";
-import Point2D from "./Point2D";
-import RGB from "./RGB";
-import Velocity2D from "./Velocity2D";
+import Ball from "./_ball";
+import Color from "./_color";
+import RGB from "./_rgb";
+import BilliardsTable from "./billiards-table";
+import Point2D from "./point-2d";
+import Velocity2D from "./velocity-2d";
 
 const billiardsTable = new BilliardsTable(160, 90);
 const coordinate = new Point2D(50, 50);

@@ -1,7 +1,7 @@
-import type BilliardsTable from "../domain/BilliardsTable";
-import type IBallRepository from "../domain/IBallRepository";
-import AliveBallRepository from "../infrastructure/AliveBallRepository";
-import createRandomBall from "./createRandomBall";
+import type BilliardsTable from "../domain/billiards-table";
+import type IBallRepository from "../domain/i-ball-repository";
+import AliveBallRepository from "../infrastructure/alive-ball-repository";
+import createRandomBall from "./create-random-ball";
 
 export default (
   billiardsTable: BilliardsTable,

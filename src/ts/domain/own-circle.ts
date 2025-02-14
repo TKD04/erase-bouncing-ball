@@ -1,8 +1,8 @@
-import type BilliardsTable from "./BilliardsTable";
-import Color from "./Color";
-import Point2D from "./Point2D";
-import RGB from "./RGB";
-import Velocity2D from "./Velocity2D";
+import Color from "./_color";
+import RGB from "./_rgb";
+import type BilliardsTable from "./billiards-table";
+import Point2D from "./point-2d";
+import Velocity2D from "./velocity-2d";
 
 export default class OwnCircle {
   get color(): string {

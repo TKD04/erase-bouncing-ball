@@ -1,4 +1,4 @@
-import GameController from "./presentation/GameController";
+import GameController from "./presentation/game-controller";
 
 const gameController = new GameController();
 

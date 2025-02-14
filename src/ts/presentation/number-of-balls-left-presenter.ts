@@ -1,4 +1,4 @@
-import type IHtmlPresenter from "./IHtmlPresenter";
+import type IHtmlPresenter from "./i-html-presenter";
 
 export default class NumberOfBallsLeftPresenter
   implements IHtmlPresenter<number>

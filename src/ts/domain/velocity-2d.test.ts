@@ -1,6 +1,6 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import Velocity2D from "./Velocity2D";
+import Velocity2D from "./velocity-2d";
 
 describe("class Velocity2D", () => {
   describe("constructor()", () => {

@@ -1,12 +1,12 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import Ball from "../domain/Ball";
-import BilliardsTable from "../domain/BilliardsTable";
-import Color from "../domain/Color";
-import Point2D from "../domain/Point2D";
-import RGB from "../domain/RGB";
-import Velocity2D from "../domain/Velocity2D";
-import AliveBallRepository from "./AliveBallRepository";
+import Ball from "../domain/_ball";
+import Color from "../domain/_color";
+import RGB from "../domain/_rgb";
+import BilliardsTable from "../domain/billiards-table";
+import Point2D from "../domain/point-2d";
+import Velocity2D from "../domain/velocity-2d";
+import AliveBallRepository from "./alive-ball-repository";
 
 const billiardsTable = new BilliardsTable(160, 90);
 const ballA = new Ball(
@@ -87,9 +87,9 @@ describe("class AliveBallRepository", () => {
       const aliveBallRepository = new AliveBallRepository();
       aliveBallRepository.add(ballA.id, ballA);
 
-      expect(() => { aliveBallRepository.remove(1); }).toThrow(
-        new RangeError("ballId must be in the keys.")
-      );
+      expect(() => {
+        aliveBallRepository.remove(1);
+      }).toThrow(new RangeError("ballId must be in the keys."));
     });
   });
 

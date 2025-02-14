@@ -1,4 +1,4 @@
-import type Color from "./Color";
+import type Color from "./_color";
 
 export default class RGB {
   readonly #BLUE: Color;

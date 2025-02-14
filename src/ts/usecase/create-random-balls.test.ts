@@ -1,8 +1,8 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import BilliardsTable from "../domain/BilliardsTable";
-import AliveBallRepository from "../infrastructure/AliveBallRepository";
-import createRandomBalls from "./createRandomBalls";
+import BilliardsTable from "../domain/billiards-table";
+import AliveBallRepository from "../infrastructure/alive-ball-repository";
+import createRandomBalls from "./create-random-balls";
 
 describe("function createRandomBalls()", () => {
   it("should be an instance of AliveBallRepository", () => {

@@ -1,6 +1,6 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import getRandomNumber from "./getRandomNumber";
+import getRandomNumber from "./get-random-number";
 
 describe("function getRandomNumber()", () => {
   it("randomNumber should be in the range of 5-10", () => {

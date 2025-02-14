@@ -1,11 +1,13 @@
-import type Ball from "../domain/Ball";
-import BilliardsTable from "../domain/BilliardsTable";
-import type IBallRepository from "../domain/IBallRepository";
-import OwnCircle from "../domain/OwnCircle";
-import createRandomBalls from "../usecase/createRandomBalls";
-import NumberOfBallsLeftPresenter from "./NumberOfBallsLeftPresenter";
+import type Ball from "../domain/_ball";
+import BilliardsTable from "../domain/billiards-table";
+import type IBallRepository from "../domain/i-ball-repository";
+import OwnCircle from "../domain/own-circle";
+import createRandomBalls from "../usecase/create-random-balls";
+import NumberOfBallsLeftPresenter from "./number-of-balls-left-presenter";
 
-const isHtmlCanvasElement = (element: HTMLElement): element is HTMLCanvasElement =>
+const isHtmlCanvasElement = (
+  element: HTMLElement
+): element is HTMLCanvasElement =>
   (element as HTMLCanvasElement).height !== undefined;
 const isHtmlSpanElement = (element: HTMLElement): element is HTMLSpanElement =>
   (element as HTMLSpanElement).textContent !== undefined;

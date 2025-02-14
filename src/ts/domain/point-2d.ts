@@ -1,4 +1,4 @@
-import type Velocity2D from "./Velocity2D";
+import type Velocity2D from "./velocity-2d";
 
 export default class Point2D {
   get x(): number {

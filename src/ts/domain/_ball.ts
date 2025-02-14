@@ -1,7 +1,7 @@
-import type BilliardsTable from "./BilliardsTable";
-import type Point2D from "./Point2D";
-import type RGB from "./RGB";
-import type Velocity2D from "./Velocity2D";
+import type RGB from "./_rgb";
+import type BilliardsTable from "./billiards-table";
+import type Point2D from "./point-2d";
+import type Velocity2D from "./velocity-2d";
 
 export default class Ball {
   get color(): string {

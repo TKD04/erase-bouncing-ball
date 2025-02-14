@@ -1,5 +1,5 @@
-import type Ball from "../domain/Ball";
-import type IBallRepository from "../domain/IBallRepository";
+import type Ball from "../domain/_ball";
+import type IBallRepository from "../domain/i-ball-repository";
 
 export default class AliveBallRepository implements IBallRepository {
   #ballIdToBall = new Map<number, Ball>();

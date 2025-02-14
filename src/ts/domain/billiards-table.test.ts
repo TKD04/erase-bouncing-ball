@@ -1,6 +1,6 @@
-import { describe, expect, it } from '@jest/globals';
+import { describe, expect, it } from "@jest/globals";
 
-import BilliardsTable from "./BilliardsTable";
+import BilliardsTable from "./billiards-table";
 
 describe("class BilliardsTable", () => {
   describe("constructor()", () => {
