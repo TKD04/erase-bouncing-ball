@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@jest/globals";
 
-import Ball from "./_ball";
-import Color from "./_color";
-import RGB from "./_rgb";
+import Ball from "./ball";
 import BilliardsTable from "./billiards-table";
+import Color from "./color";
 import Point2D from "./point-2d";
+import RGB from "./rgb";
 import Velocity2D from "./velocity-2d";
 
 const billiardsTable = new BilliardsTable(160, 90);

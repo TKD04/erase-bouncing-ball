@@ -1,5 +1,5 @@
-import Color from "../domain/_color";
-import RGB from "../domain/_rgb";
+import Color from "../domain/color";
+import RGB from "../domain/rgb";
 import getRandomNumber from "./get-random-number";
 
 export default () => {

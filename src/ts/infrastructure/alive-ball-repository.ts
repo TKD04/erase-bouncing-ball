@@ -1,4 +1,4 @@
-import type Ball from "../domain/_ball";
+import type Ball from "../domain/ball";
 import type IBallRepository from "../domain/i-ball-repository";
 
 export default class AliveBallRepository implements IBallRepository {

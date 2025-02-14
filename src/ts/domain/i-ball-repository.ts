@@ -1,4 +1,4 @@
-import type Ball from "./_ball";
+import type Ball from "./ball";
 
 export default interface IBallRepository {
   add(ballId: number, ball: Ball): void;

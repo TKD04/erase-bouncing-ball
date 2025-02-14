@@ -1,4 +1,4 @@
-import type Ball from "../domain/_ball";
+import type Ball from "../domain/ball";
 import BilliardsTable from "../domain/billiards-table";
 import type IBallRepository from "../domain/i-ball-repository";
 import OwnCircle from "../domain/own-circle";

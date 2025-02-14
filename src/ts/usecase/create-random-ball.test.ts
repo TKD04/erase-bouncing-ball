@@ -1,6 +1,6 @@
 import { describe, expect, it } from "@jest/globals";
 
-import Ball from "../domain/_ball";
+import Ball from "../domain/ball";
 import BilliardsTable from "../domain/billiards-table";
 import createRandomBall from "./create-random-ball";
 

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "@jest/globals";
 
-import Color from "./_color";
-import RGB from "./_rgb";
+import Color from "./color";
+import RGB from "./rgb";
 
 describe("class RGB", () => {
   describe("constructor()", () => {

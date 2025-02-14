@@ -1,6 +1,6 @@
-import type RGB from "./_rgb";
 import type BilliardsTable from "./billiards-table";
 import type Point2D from "./point-2d";
+import type RGB from "./rgb";
 import type Velocity2D from "./velocity-2d";
 
 export default class Ball {

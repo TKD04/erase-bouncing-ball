@@ -1,10 +1,10 @@
 import { describe, expect, it } from "@jest/globals";
 
-import Ball from "../domain/_ball";
-import Color from "../domain/_color";
-import RGB from "../domain/_rgb";
+import Ball from "../domain/ball";
 import BilliardsTable from "../domain/billiards-table";
+import Color from "../domain/color";
 import Point2D from "../domain/point-2d";
+import RGB from "../domain/rgb";
 import Velocity2D from "../domain/velocity-2d";
 import AliveBallRepository from "./alive-ball-repository";
 

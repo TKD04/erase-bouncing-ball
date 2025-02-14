@@ -1,4 +1,4 @@
-import Ball from "../domain/_ball";
+import Ball from "../domain/ball";
 import type BilliardsTable from "../domain/billiards-table";
 import Point2D from "../domain/point-2d";
 import Velocity2D from "../domain/velocity-2d";
