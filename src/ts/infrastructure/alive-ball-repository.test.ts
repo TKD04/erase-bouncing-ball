@@ -49,7 +49,7 @@ describe("class AliveBallRepository", () => {
       const aliveBallRepository = new AliveBallRepository();
       const noBalls: readonly Ball[] = [];
 
-      expect(aliveBallRepository.getAll()).toMatchObject(noBalls);
+      expect(aliveBallRepository.getAll()).toStrictEqual(noBalls);
     });
   });
 
@@ -63,7 +63,7 @@ describe("class AliveBallRepository", () => {
       aliveBallRepository.add(ballB.id, ballB);
       aliveBallRepository.add(ballC.id, ballC);
 
-      expect(aliveBallRepository.getAll()).toMatchObject(balls);
+      expect(aliveBallRepository.getAll()).toStrictEqual(balls);
     });
   });
 
@@ -78,7 +78,7 @@ describe("class AliveBallRepository", () => {
       aliveBallRepository.add(ballC.id, ballC);
       aliveBallRepository.remove(1);
 
-      expect(aliveBallRepository.getAll()).toMatchObject(balls);
+      expect(aliveBallRepository.getAll()).toStrictEqual(balls);
     });
 
     it("should be throw an error if the key does not exist", () => {
