@@ -3,7 +3,7 @@ import type BilliardsTable from "../domain/billiards-table";
 import AliveBallRepository from "../infrastructure/alive-ball-repository";
 import createRandomBall from "./create-random-ball";
 
-export default (
+const createRandomBalls = (
   billiardsTable: BilliardsTable,
   numberOfBalls: number
 ): BallRepository => {
@@ -20,3 +20,5 @@ export default (
 
   return aliveBallRepository;
 };
+
+export default createRandomBalls;
