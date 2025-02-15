@@ -65,8 +65,8 @@ export default class GameController {
 
       requestAnimationFrame(drawFrame);
     };
-    globalThis.addEventListener("keydown", (e) => {
-      switch (e.key) {
+    globalThis.addEventListener("keydown", (event) => {
+      switch (event.key) {
         case "a":
         case "ArrowLeft": {
           this.#OWN_CIRCLE.moveToLeft();
