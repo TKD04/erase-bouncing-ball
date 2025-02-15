@@ -1,6 +1,6 @@
 import type Ball from "../domain/ball";
+import type BallRepository from "../domain/ball-repository";
 import BilliardsTable from "../domain/billiards-table";
-import type IBallRepository from "../domain/i-ball-repository";
 import OwnCircle from "../domain/own-circle";
 import createRandomBalls from "../usecase/create-random-balls";
 import NumberOfBallsLeftPresenter from "./number-of-balls-left-presenter";
@@ -13,7 +13,7 @@ const isHtmlSpanElement = (element: HTMLElement): element is HTMLSpanElement =>
   (element as HTMLSpanElement).textContent !== undefined;
 
 export default class GameController {
-  readonly #ALIVE_BALL_REPOSITORY: IBallRepository;
+  readonly #ALIVE_BALL_REPOSITORY: BallRepository;
 
   readonly #BILLIARDS_TABLE: BilliardsTable;
 

@@ -1,7 +1,7 @@
 import type Ball from "../domain/ball";
-import type IBallRepository from "../domain/i-ball-repository";
+import type BallRepository from "../domain/ball-repository";
 
-export default class AliveBallRepository implements IBallRepository {
+export default class AliveBallRepository implements BallRepository {
   #ballIdToBall = new Map<number, Ball>();
 
   add(ballId: number, ball: Ball): void {

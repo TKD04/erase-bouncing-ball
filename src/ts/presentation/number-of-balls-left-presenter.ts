@@ -1,7 +1,7 @@
-import type IHtmlPresenter from "./i-html-presenter";
+import type HtmlPresenter from "./html-presenter";
 
 export default class NumberOfBallsLeftPresenter
-  implements IHtmlPresenter<number>
+  implements HtmlPresenter<number>
 {
   readonly #SPAN_NUMBER_OF_BALLS_LEFT: HTMLSpanElement;
 
