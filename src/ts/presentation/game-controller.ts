@@ -5,12 +5,10 @@ import OwnCircle from "../domain/own-circle";
 import createRandomBalls from "../usecase/create-random-balls";
 import NumberOfBallsLeftPresenter from "./number-of-balls-left-presenter";
 
-const isHtmlCanvasElement = (
-  element: HTMLElement
-): element is HTMLCanvasElement =>
-  (element as HTMLCanvasElement).height !== undefined;
-const isHtmlSpanElement = (element: HTMLElement): element is HTMLSpanElement =>
-  (element as HTMLSpanElement).textContent !== undefined;
+const isHtmlCanvasElement = (element: Element): element is HTMLCanvasElement =>
+  element.tagName === "CANVAS";
+const isHtmlSpanElement = (element: Element): element is HTMLSpanElement =>
+  element.tagName === "SPAN";
 
 export default class GameController {
   readonly #ALIVE_BALL_REPOSITORY: BallRepository;
