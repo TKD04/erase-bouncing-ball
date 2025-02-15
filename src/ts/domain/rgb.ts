@@ -14,6 +14,6 @@ export default class RGB {
   }
 
   toString(): string {
-    return `rgb(${this.#RED.value}, ${this.#GREEN.value}, ${this.#BLUE.value})`;
+    return `rgb(${this.#RED.value.toString()}, ${this.#GREEN.value.toString()}, ${this.#BLUE.value.toString()})`;
   }
 }
