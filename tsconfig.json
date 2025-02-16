@@ -11,20 +11,24 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
+    "allowImportingTsExtensions": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
-    "outDir": "./dist",
+    "noEmit": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "lib": [
-      "esnext",
+      "es2020",
       "dom",
       "dom.iterable"
     ],
-    "target": "es2016",
+    "moduleDetection": "force",
+    "target": "es2020",
+    "useDefineForClassFields": true,
     "skipLibCheck": true
   },
   "include": [
