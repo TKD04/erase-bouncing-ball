@@ -5,13 +5,13 @@ import AliveBallRepository from "../infrastructure/alive-ball-repository";
 import createRandomBalls from "./create-random-balls";
 
 describe("function createRandomBalls()", () => {
-  it("should be an instance of AliveBallRepository", () => {
-    expect.hasAssertions();
+  it("returns an instance of AliveBallRepository", () => {
+    expect.assertions(1);
 
     const billiardsTable = new BilliardsTable(160, 90);
 
-    expect(createRandomBalls(billiardsTable, 5)).toBeInstanceOf(
-      AliveBallRepository
-    );
+    const actual = createRandomBalls(billiardsTable, 5);
+
+    expect(actual).toBeInstanceOf(AliveBallRepository);
   });
 });

@@ -4,34 +4,41 @@ import BilliardsTable from "./billiards-table";
 
 describe("class BilliardsTable", () => {
   describe("constructor()", () => {
-    it("should be an instance of BilliardsTable", () => {
-      expect.hasAssertions();
-      expect(new BilliardsTable(160, 90)).toBeInstanceOf(BilliardsTable);
+    it("returns an instance of BilliardsTable", () => {
+      expect.assertions(1);
+
+      const actual = new BilliardsTable(160, 90);
+
+      expect(actual).toBeInstanceOf(BilliardsTable);
     });
 
-    it("should throw an error when width is zero", () => {
-      expect.hasAssertions();
+    it("throws an error if width is zero", () => {
+      expect.assertions(1);
+
       expect(() => new BilliardsTable(0, 90)).toThrow(
         new RangeError("width must be greater than zero.")
       );
     });
 
-    it("should throw an error when width is negative", () => {
-      expect.hasAssertions();
+    it("throws an error if width is negative", () => {
+      expect.assertions(1);
+
       expect(() => new BilliardsTable(-160, 90)).toThrow(
         new RangeError("width must be greater than zero.")
       );
     });
 
-    it("should throw an error when height is zero", () => {
-      expect.hasAssertions();
+    it("throws an error if height is zero", () => {
+      expect.assertions(1);
+
       expect(() => new BilliardsTable(160, 0)).toThrow(
         new RangeError("height must be greater than zero.")
       );
     });
 
-    it("should throw an error when height is negative", () => {
-      expect.hasAssertions();
+    it("throws an error if height is negative", () => {
+      expect.assertions(1);
+
       expect(() => new BilliardsTable(160, -90)).toThrow(
         new RangeError("height must be greater than zero.")
       );
@@ -39,22 +46,26 @@ describe("class BilliardsTable", () => {
   });
 
   describe("get width()", () => {
-    it("width should be equal to 160", () => {
-      expect.hasAssertions();
+    it("width is equal to 160", () => {
+      expect.assertions(1);
 
       const billiardsTable = new BilliardsTable(160, 90);
 
-      expect(billiardsTable.width).toBe(160);
+      const actual = billiardsTable.width;
+
+      expect(actual).toBe(160);
     });
   });
 
   describe("get height()", () => {
-    it("height should be equal to 90", () => {
-      expect.hasAssertions();
+    it("height is equal to 90", () => {
+      expect.assertions(1);
 
       const billiardsTable = new BilliardsTable(160, 90);
 
-      expect(billiardsTable.height).toBe(90);
+      const actual = billiardsTable.height;
+
+      expect(actual).toBe(90);
     });
   });
 });

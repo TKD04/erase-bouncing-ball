@@ -5,11 +5,13 @@ import BilliardsTable from "../domain/billiards-table";
 import createRandomBall from "./create-random-ball";
 
 describe("function createRandomBall()", () => {
-  it("should be an instance of Ball", () => {
-    expect.hasAssertions();
+  it("returns an instance of Ball", () => {
+    expect.assertions(1);
 
     const billiardsTable = new BilliardsTable(160, 90);
 
-    expect(createRandomBall(billiardsTable, 10)).toBeInstanceOf(Ball);
+    const actual = createRandomBall(billiardsTable, 10);
+
+    expect(actual).toBeInstanceOf(Ball);
   });
 });

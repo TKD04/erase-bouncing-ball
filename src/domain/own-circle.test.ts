@@ -5,196 +5,242 @@ import OwnCircle from "./own-circle";
 
 describe("class OwnCircle", () => {
   describe("constructor()", () => {
-    it("should be an instance of OwnCircle", () => {
-      expect.hasAssertions();
+    it("returns an instance of OwnCircle", () => {
+      expect.assertions(1);
 
       const billiardsTable = new BilliardsTable(160, 90);
 
-      expect(new OwnCircle(billiardsTable)).toBeInstanceOf(OwnCircle);
+      const actual = new OwnCircle(billiardsTable);
+
+      expect(actual).toBeInstanceOf(OwnCircle);
     });
   });
 
   describe("get x()", () => {
-    it("x should be 80", () => {
-      expect.hasAssertions();
+    it("x is 80", () => {
+      expect.assertions(1);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
 
-      expect(ownCircle.x).toBe(80);
+      const actual = ownCircle.x;
+
+      expect(actual).toBe(80);
     });
   });
 
   describe("get y()", () => {
-    it("y should be 45", () => {
-      expect.hasAssertions();
+    it("y is 45", () => {
+      expect.assertions(1);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
 
-      expect(ownCircle.y).toBe(45);
+      const actual = ownCircle.y;
+
+      expect(actual).toBe(45);
     });
   });
 
   describe("get radius()", () => {
-    it("radius should be 10", () => {
-      expect.hasAssertions();
+    it("radius is 10", () => {
+      expect.assertions(1);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
 
-      expect(ownCircle.radius).toBe(10);
+      const actual = ownCircle.radius;
+
+      expect(actual).toBe(10);
     });
   });
 
   describe("get color()", () => {
-    it("color should be rgb(254, 254, 254)", () => {
-      expect.hasAssertions();
+    it("color is rgb(254, 254, 254)", () => {
+      expect.assertions(1);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
 
-      expect(ownCircle.color).toBe("rgb(254, 254, 254)");
+      const actual = ownCircle.color;
+
+      expect(actual).toBe("rgb(254, 254, 254)");
     });
   });
 
   describe("moveToUp()", () => {
-    it("[x, y] should be [80, 25] when ownCircle does not collide with the top wall", () => {
+    it("[x, y] is [80, 25] if ownCircle does not collide with the top wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToUp();
 
-      expect(ownCircle.x).toBe(80);
-      expect(ownCircle.y).toBe(25);
+      ownCircle.moveToUp();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(80);
+      expect(actualY).toBe(25);
     });
 
-    it("[x, y] should be [80, 10] when ownCircle collides with the top wall", () => {
+    it("[x, y] is [80, 10] if ownCircle collides with the top wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 40);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToUp();
 
-      expect(ownCircle.x).toBe(80);
-      expect(ownCircle.y).toBe(10);
+      ownCircle.moveToUp();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(80);
+      expect(actualY).toBe(10);
     });
 
-    it("[x, y] should be [80, 10] when ownCircle on the top wall", () => {
+    it("[x, y] is [80, 10] if ownCircle on the top wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 20);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToUp();
 
-      expect(ownCircle.x).toBe(80);
-      expect(ownCircle.y).toBe(10);
+      ownCircle.moveToUp();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(80);
+      expect(actualY).toBe(10);
     });
   });
 
   describe("moveToDown()", () => {
-    it("[x, y] should be [80, 65] when ownCircle does not collide with the bottom wall", () => {
+    it("[x, y] is [80, 65] if ownCircle does not collide with the bottom wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToDown();
 
-      expect(ownCircle.x).toBe(80);
-      expect(ownCircle.y).toBe(65);
+      ownCircle.moveToDown();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(80);
+      expect(actualY).toBe(65);
     });
 
-    it("[x, y] should be [80, 30] when ownCircle collides with the bottom wall", () => {
+    it("[x, y] is [80, 30] if ownCircle collides with the bottom wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 40);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToDown();
 
-      expect(ownCircle.x).toBe(80);
-      expect(ownCircle.y).toBe(30);
+      ownCircle.moveToDown();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(80);
+      expect(actualY).toBe(30);
     });
 
-    it("[x, y] should be [80, 10] when ownCircle on the bottom wall", () => {
+    it("[x, y] is [80, 10] if ownCircle on the bottom wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 20);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToDown();
 
-      expect(ownCircle.x).toBe(80);
-      expect(ownCircle.y).toBe(10);
+      ownCircle.moveToDown();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(80);
+      expect(actualY).toBe(10);
     });
   });
 
   describe("moveToLeft()", () => {
-    it("[x, y] should be [60, 45] when ownCircle does not collide with the left wall", () => {
+    it("[x, y] is [60, 45] if ownCircle does not collide with the left wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToLeft();
 
-      expect(ownCircle.x).toBe(60);
-      expect(ownCircle.y).toBe(45);
+      ownCircle.moveToLeft();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(60);
+      expect(actualY).toBe(45);
     });
 
-    it("[x, y] should be [10, 45] when ownCircle collides with the left wall", () => {
+    it("[x, y] is [10, 45] if ownCircle collides with the left wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(40, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToLeft();
 
-      expect(ownCircle.x).toBe(10);
-      expect(ownCircle.y).toBe(45);
+      ownCircle.moveToLeft();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(10);
+      expect(actualY).toBe(45);
     });
 
-    it("[x, y] should be [10, 45] when ownCircle on the left wall", () => {
+    it("[x, y] is [10, 45] if ownCircle on the left wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(20, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToLeft();
 
-      expect(ownCircle.x).toBe(10);
-      expect(ownCircle.y).toBe(45);
+      ownCircle.moveToLeft();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(10);
+      expect(actualY).toBe(45);
     });
   });
 
   describe("moveToRight()", () => {
-    it("[x, y] should be [100, 45] when ownCircle does not collide with the right wall", () => {
+    it("[x, y] is [100, 45] if ownCircle does not collide with the right wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToRight();
 
-      expect(ownCircle.x).toBe(100);
-      expect(ownCircle.y).toBe(45);
+      ownCircle.moveToRight();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(100);
+      expect(actualY).toBe(45);
     });
 
-    it("[x, y] should be [30, 45] when ownCircle collides with the right wall", () => {
+    it("[x, y] is [30, 45] if ownCircle collides with the right wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(40, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToRight();
 
-      expect(ownCircle.x).toBe(30);
-      expect(ownCircle.y).toBe(45);
+      ownCircle.moveToRight();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(30);
+      expect(actualY).toBe(45);
     });
 
-    it("[x, y] should be [10, 45] when ownCircle on the right wall", () => {
+    it("[x, y] is [10, 45] if ownCircle on the right wall", () => {
       expect.assertions(2);
 
       const billiardsTable = new BilliardsTable(20, 90);
       const ownCircle = new OwnCircle(billiardsTable);
-      ownCircle.moveToRight();
 
-      expect(ownCircle.x).toBe(10);
-      expect(ownCircle.y).toBe(45);
+      ownCircle.moveToRight();
+      const actualX = ownCircle.x;
+      const actualY = ownCircle.y;
+
+      expect(actualX).toBe(10);
+      expect(actualY).toBe(45);
     });
   });
 });
