@@ -2,12 +2,10 @@ import { FlatCompat } from "@eslint/eslintrc";
 import eslint from "@eslint/js";
 import stylisticPlugin from "@stylistic/eslint-plugin";
 import prettierConfig from "eslint-config-prettier";
-import jestDomPlugin from "eslint-plugin-jest-dom";
 import jsdocPlugin from "eslint-plugin-jsdoc";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
 import regexpPlugin from "eslint-plugin-regexp";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
-import testingLibraryPlugin from "eslint-plugin-testing-library";
 import unicornPlugin from "eslint-plugin-unicorn";
 import vitestPlugin from "eslint-plugin-vitest";
 import globals from "globals";
@@ -162,11 +160,7 @@ export default tseslint.config(
     name: "js",
   },
   {
-    extends: [
-      vitestPlugin.configs.all,
-      jestDomPlugin.configs["flat/all"],
-      testingLibraryPlugin.configs["flat/dom"],
-    ],
+    extends: [vitestPlugin.configs.all],
     files: ["src/**/*.test.ts"],
     name: "test",
     settings: {
