@@ -2,7 +2,6 @@ import { FlatCompat } from "@eslint/eslintrc";
 import eslint from "@eslint/js";
 import stylisticPlugin from "@stylistic/eslint-plugin";
 import prettierConfig from "eslint-config-prettier";
-import jestPlugin from "eslint-plugin-jest";
 import jestDomPlugin from "eslint-plugin-jest-dom";
 import jsdocPlugin from "eslint-plugin-jsdoc";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
@@ -10,6 +9,7 @@ import regexpPlugin from "eslint-plugin-regexp";
 import simpleImportSortPlugin from "eslint-plugin-simple-import-sort";
 import testingLibraryPlugin from "eslint-plugin-testing-library";
 import unicornPlugin from "eslint-plugin-unicorn";
+import vitestPlugin from "eslint-plugin-vitest";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -163,17 +163,16 @@ export default tseslint.config(
   },
   {
     extends: [
-      jestPlugin.configs["flat/all"],
+      vitestPlugin.configs.all,
       jestDomPlugin.configs["flat/all"],
       testingLibraryPlugin.configs["flat/dom"],
     ],
     files: ["src/**/*.test.ts"],
-    languageOptions: {
-      globals: globals.jest,
-    },
     name: "test",
-    plugins: {
-      jest: jestPlugin,
+    settings: {
+      vitest: {
+        typecheck: true,
+      },
     },
   }
 );

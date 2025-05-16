@@ -1,4 +1,4 @@
-import { describe, expect, it } from "@jest/globals";
+import { describe, expect, it } from "vitest";
 
 import Ball from "./ball";
 import BilliardsTable from "./billiards-table";

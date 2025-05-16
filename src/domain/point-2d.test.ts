@@ -1,4 +1,4 @@
-import { describe, expect, it } from "@jest/globals";
+import { describe, expect, it } from "vitest";
 
 import Point2D from "./point-2d";
 import Velocity2D from "./velocity-2d";
