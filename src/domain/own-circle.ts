@@ -85,6 +85,7 @@ export default class OwnCircle {
       const diffBetweenCircleAndRightWall =
         this.#BILLIARDS_TABLE.width - (this.#POINT.x + this.#RADIUS);
       this.#POINT.move(new Velocity2D(diffBetweenCircleAndRightWall, 0));
+
       return;
     }
     this.#POINT.move(this.#VELOCITIES.right);

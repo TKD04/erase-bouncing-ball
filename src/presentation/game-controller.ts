@@ -38,7 +38,6 @@ export default class GameController {
     ) {
       throw new TypeError("spanNumberOfBalls must be HTMLSpanElement.");
     }
-
     // The dimention of the HTMLCanvasElement must be set before getting ctx.
     const { innerHeight, innerWidth } = globalThis;
     canvasBilliardsTable.width = innerWidth;
@@ -62,9 +61,9 @@ export default class GameController {
       this.#drawBilliardsTable();
       this.#drawBalls();
       this.#drawOwnCircle();
-
       requestAnimationFrame(drawFrame);
     };
+
     globalThis.addEventListener("keydown", (event) => {
       switch (event.key) {
         case "a":
