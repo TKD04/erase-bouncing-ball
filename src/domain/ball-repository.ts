@@ -5,7 +5,7 @@ export default interface BallRepository {
 
   getAll(): readonly Ball[];
 
-  length(): number;
+  get length(): number;
 
   remove(ballId: number): void;
 }

@@ -38,6 +38,34 @@ const createBallC = () =>
   );
 
 describe("class AliveBallRepository", () => {
+  describe("get length", () => {
+    it("length is equal to 0", () => {
+      expect.assertions(1);
+
+      const aliveBallRepository = new AliveBallRepository();
+
+      const actual = aliveBallRepository.length;
+
+      expect(actual).toBe(0);
+    });
+
+    it("length is equal to 3", () => {
+      expect.assertions(1);
+
+      const aliveBallRepository = new AliveBallRepository();
+      const ballA = createBallA();
+      const ballB = createBallB();
+      const ballC = createBallC();
+      aliveBallRepository.add(ballA.id, ballA);
+      aliveBallRepository.add(ballB.id, ballB);
+      aliveBallRepository.add(ballC.id, ballC);
+
+      const actual = aliveBallRepository.length;
+
+      expect(actual).toBe(3);
+    });
+  });
+
   describe("constructor()", () => {
     it("returns an instance of AliveBallRepository", () => {
       expect.assertions(1);
@@ -110,34 +138,6 @@ describe("class AliveBallRepository", () => {
       expect(() => {
         aliveBallRepository.remove(1);
       }).toThrow(new RangeError("ballId must be in the keys."));
-    });
-  });
-
-  describe("length()", () => {
-    it("length is equal to 0", () => {
-      expect.assertions(1);
-
-      const aliveBallRepository = new AliveBallRepository();
-
-      const actual = aliveBallRepository.length();
-
-      expect(actual).toBe(0);
-    });
-
-    it("length is equal to 3", () => {
-      expect.assertions(1);
-
-      const aliveBallRepository = new AliveBallRepository();
-      const ballA = createBallA();
-      const ballB = createBallB();
-      const ballC = createBallC();
-      aliveBallRepository.add(ballA.id, ballA);
-      aliveBallRepository.add(ballB.id, ballB);
-      aliveBallRepository.add(ballC.id, ballC);
-
-      const actual = aliveBallRepository.length();
-
-      expect(actual).toBe(3);
     });
   });
 });

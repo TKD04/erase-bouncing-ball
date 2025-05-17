@@ -2,6 +2,10 @@ import type Ball from "../domain/ball";
 import type BallRepository from "../domain/ball-repository";
 
 export default class AliveBallRepository implements BallRepository {
+  get length(): number {
+    return this.#ballIdToBall.size;
+  }
+
   #ballIdToBall = new Map<number, Ball>();
 
   add(ballId: number, ball: Ball): void {
@@ -10,10 +14,6 @@ export default class AliveBallRepository implements BallRepository {
 
   getAll(): readonly Ball[] {
     return [...this.#ballIdToBall.values()];
-  }
-
-  length(): number {
-    return this.#ballIdToBall.size;
   }
 
   remove(ballId: number): void {

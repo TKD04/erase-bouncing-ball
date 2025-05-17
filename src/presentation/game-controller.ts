@@ -94,7 +94,7 @@ export default class GameController {
       this.#drawOwnCircle();
     });
     this.#NUMBER_OF_BALLS_LEFT_PRESENTER.render(
-      this.#ALIVE_BALL_REPOSITORY.length()
+      this.#ALIVE_BALL_REPOSITORY.length
     );
 
     drawFrame();
@@ -112,7 +112,7 @@ export default class GameController {
       if (this.#isColliedWithOwnCircle(ball)) {
         this.#ALIVE_BALL_REPOSITORY.remove(ball.id);
         this.#NUMBER_OF_BALLS_LEFT_PRESENTER.render(
-          this.#ALIVE_BALL_REPOSITORY.length()
+          this.#ALIVE_BALL_REPOSITORY.length
         );
       }
       this.#drawBall(ball);
