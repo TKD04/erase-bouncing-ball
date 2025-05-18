@@ -9,6 +9,10 @@ export default class AliveBallRepository implements BallRepository {
   #ballIdToBall = new Map<number, Ball>();
 
   add(ballId: number, ball: Ball): void {
+    if (this.#ballIdToBall.has(ballId)) {
+      throw new Error(`ballId ${ballId.toString()} is already in place.`);
+    }
+
     this.#ballIdToBall.set(ballId, ball);
   }
 

@@ -106,6 +106,18 @@ describe("class AliveBallRepository", () => {
 
       expect(actual).toStrictEqual(balls);
     });
+
+    it("thows an error if ballId is already in place", () => {
+      expect.assertions(1);
+
+      const aliveBallRepository = new AliveBallRepository();
+      const ballA = createBallA();
+      aliveBallRepository.add(1, ballA);
+
+      expect(() => {
+        aliveBallRepository.add(1, ballA);
+      }).toThrow(new Error("ballId 1 is already in place."));
+    });
   });
 
   describe("remove()", () => {
