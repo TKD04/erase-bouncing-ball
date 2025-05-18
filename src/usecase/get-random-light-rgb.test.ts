@@ -5,7 +5,7 @@ import getRandomLightRGB from "./get-random-light-rgb";
 
 describe("function getRandomLightRGB()", () => {
   it("returns an instance of RGB", () => {
-    expect.assertions(1);
+    expect.hasAssertions();
 
     const actual = getRandomLightRGB();
 

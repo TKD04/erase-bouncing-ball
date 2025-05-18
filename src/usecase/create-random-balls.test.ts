@@ -6,7 +6,7 @@ import createRandomBalls from "./create-random-balls";
 
 describe("function createRandomBalls()", () => {
   it("returns an instance of AliveBallRepository", () => {
-    expect.assertions(1);
+    expect.hasAssertions();
 
     const billiardsTable = new BilliardsTable(160, 90);
 

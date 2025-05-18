@@ -40,7 +40,7 @@ const createBallC = () =>
 describe("class AliveBallRepository", () => {
   describe("get length", () => {
     it("length is equal to 0", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const aliveBallRepository = new AliveBallRepository();
 
@@ -50,7 +50,7 @@ describe("class AliveBallRepository", () => {
     });
 
     it("length is equal to 3", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const aliveBallRepository = new AliveBallRepository();
       const ballA = createBallA();
@@ -68,7 +68,7 @@ describe("class AliveBallRepository", () => {
 
   describe("constructor()", () => {
     it("returns an instance of AliveBallRepository", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const actual = new AliveBallRepository();
 
@@ -78,7 +78,7 @@ describe("class AliveBallRepository", () => {
 
   describe("getAll()", () => {
     it("is matched to the empty Ball array", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const aliveBallRepository = new AliveBallRepository();
       const noBalls: readonly Ball[] = [];
@@ -91,7 +91,7 @@ describe("class AliveBallRepository", () => {
 
   describe("add()", () => {
     it("is matched to the Ball array", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const aliveBallRepository = new AliveBallRepository();
       const ballA = createBallA();
@@ -108,7 +108,7 @@ describe("class AliveBallRepository", () => {
     });
 
     it("thows an error if ballId is already in place", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const aliveBallRepository = new AliveBallRepository();
       const ballA = createBallA();
@@ -122,7 +122,7 @@ describe("class AliveBallRepository", () => {
 
   describe("remove()", () => {
     it("is matched to the Ball array", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const aliveBallRepository = new AliveBallRepository();
       const ballA = createBallA();
@@ -140,7 +140,7 @@ describe("class AliveBallRepository", () => {
     });
 
     it("throws an error if the key does not exist", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const aliveBallRepository = new AliveBallRepository();
       const ballA = createBallA();

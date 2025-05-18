@@ -6,7 +6,7 @@ import OwnCircle from "./own-circle";
 describe("class OwnCircle", () => {
   describe("constructor()", () => {
     it("returns an instance of OwnCircle", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = new BilliardsTable(160, 90);
 
@@ -18,7 +18,7 @@ describe("class OwnCircle", () => {
 
   describe("get x()", () => {
     it("x is 80", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
@@ -31,7 +31,7 @@ describe("class OwnCircle", () => {
 
   describe("get y()", () => {
     it("y is 45", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
@@ -44,7 +44,7 @@ describe("class OwnCircle", () => {
 
   describe("get radius()", () => {
     it("radius is 10", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);
@@ -57,7 +57,7 @@ describe("class OwnCircle", () => {
 
   describe("get color()", () => {
     it("color is rgb(254, 254, 254)", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = new BilliardsTable(160, 90);
       const ownCircle = new OwnCircle(billiardsTable);

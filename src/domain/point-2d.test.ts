@@ -6,7 +6,7 @@ import Velocity2D from "./velocity-2d";
 describe("class Point2D", () => {
   describe("constructor()", () => {
     it("returns an instance of Point2D", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const actual = new Point2D(0, 0);
 
@@ -16,7 +16,7 @@ describe("class Point2D", () => {
 
   describe("get x()", () => {
     it("x is equal to 2", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const point = new Point2D(2, 0);
 
@@ -28,7 +28,7 @@ describe("class Point2D", () => {
 
   describe("get y()", () => {
     it("y is equal to 4", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const point = new Point2D(0, 4);
 

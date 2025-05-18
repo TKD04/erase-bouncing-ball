@@ -6,7 +6,7 @@ import createRandomBall from "./create-random-ball";
 
 describe("function createRandomBall()", () => {
   it("returns an instance of Ball", () => {
-    expect.assertions(1);
+    expect.hasAssertions();
 
     const billiardsTable = new BilliardsTable(160, 90);
 

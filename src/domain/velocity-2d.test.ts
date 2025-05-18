@@ -5,7 +5,7 @@ import Velocity2D from "./velocity-2d";
 describe("class Velocity2D", () => {
   describe("constructor()", () => {
     it("returns an instance of Velocity2D", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const actual = new Velocity2D(0, 0);
 
@@ -15,7 +15,7 @@ describe("class Velocity2D", () => {
 
   describe("get x()", () => {
     it("x() is equal to 2", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const velocity = new Velocity2D(2, 0);
 
@@ -27,7 +27,7 @@ describe("class Velocity2D", () => {
 
   describe("get y()", () => {
     it("y() is equal to 4", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const velocity = new Velocity2D(0, 4);
 
@@ -39,7 +39,7 @@ describe("class Velocity2D", () => {
 
   describe("bounceBackX()", () => {
     it("x is equal to -x", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const velocity = new Velocity2D(2, 4);
 
@@ -52,7 +52,7 @@ describe("class Velocity2D", () => {
 
   describe("bounceBackY()", () => {
     it("y is equal to -y", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const velocity = new Velocity2D(2, 4);
 

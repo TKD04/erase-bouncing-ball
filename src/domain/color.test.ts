@@ -5,7 +5,7 @@ import Color from "./color";
 describe("class Color", () => {
   describe("constructor()", () => {
     it("returns an instace of Color if color is zero", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const actual = new Color(0);
 
@@ -13,7 +13,7 @@ describe("class Color", () => {
     });
 
     it("returns an instace of Color if color is 255", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const actual = new Color(255);
 
@@ -21,7 +21,7 @@ describe("class Color", () => {
     });
 
     it("throws an error if color is negative", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       expect(() => new Color(-1)).toThrow(
         new RangeError("value must be in the range 0-255.")
@@ -29,7 +29,7 @@ describe("class Color", () => {
     });
 
     it("throws an error if color is 256", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       expect(() => new Color(256)).toThrow(
         new RangeError("value must be in the range 0-255.")
@@ -39,7 +39,7 @@ describe("class Color", () => {
 
   describe("get value()", () => {
     it("value is equal to zero", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const color = new Color(0);
 
@@ -49,7 +49,7 @@ describe("class Color", () => {
     });
 
     it("value is equal to 255", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const color = new Color(255);
 

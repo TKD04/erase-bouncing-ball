@@ -6,7 +6,7 @@ import RGB from "./rgb";
 describe("class RGB", () => {
   describe("constructor()", () => {
     it("returns an instance of RGB", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const red = new Color(225);
       const green = new Color(225);
@@ -20,7 +20,7 @@ describe("class RGB", () => {
 
   describe("toString()", () => {
     it("is equal to rgb(225, 225, 225)", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const red = new Color(225);
       const green = new Color(225);

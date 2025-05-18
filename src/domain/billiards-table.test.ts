@@ -5,7 +5,7 @@ import BilliardsTable from "./billiards-table";
 describe("class BilliardsTable", () => {
   describe("constructor()", () => {
     it("returns an instance of BilliardsTable", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const actual = new BilliardsTable(160, 90);
 
@@ -13,7 +13,7 @@ describe("class BilliardsTable", () => {
     });
 
     it("throws an error if width is zero", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       expect(() => new BilliardsTable(0, 90)).toThrow(
         new RangeError("width must be greater than zero.")
@@ -21,7 +21,7 @@ describe("class BilliardsTable", () => {
     });
 
     it("throws an error if width is negative", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       expect(() => new BilliardsTable(-160, 90)).toThrow(
         new RangeError("width must be greater than zero.")
@@ -29,7 +29,7 @@ describe("class BilliardsTable", () => {
     });
 
     it("throws an error if height is zero", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       expect(() => new BilliardsTable(160, 0)).toThrow(
         new RangeError("height must be greater than zero.")
@@ -37,7 +37,7 @@ describe("class BilliardsTable", () => {
     });
 
     it("throws an error if height is negative", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       expect(() => new BilliardsTable(160, -90)).toThrow(
         new RangeError("height must be greater than zero.")
@@ -47,7 +47,7 @@ describe("class BilliardsTable", () => {
 
   describe("get width()", () => {
     it("width is equal to 160", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = new BilliardsTable(160, 90);
 
@@ -59,7 +59,7 @@ describe("class BilliardsTable", () => {
 
   describe("get height()", () => {
     it("height is equal to 90", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = new BilliardsTable(160, 90);
 

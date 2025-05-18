@@ -25,7 +25,7 @@ const createBall = () =>
 describe("class Ball", () => {
   describe("get color()", () => {
     it("color is equal to rgb(225, 225, 225)", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const ball = createBall();
 
@@ -37,7 +37,7 @@ describe("class Ball", () => {
 
   describe("get id()", () => {
     it("id is equal to 1", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const ball = createBall();
 
@@ -49,7 +49,7 @@ describe("class Ball", () => {
 
   describe("get radius()", () => {
     it("radius is equal to 1", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const ball = createBall();
 
@@ -61,7 +61,7 @@ describe("class Ball", () => {
 
   describe("get x()", () => {
     it("x is equal to zero", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const ball = createBall();
 
@@ -73,7 +73,7 @@ describe("class Ball", () => {
 
   describe("get y()", () => {
     it("y is equal to zero", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const ball = createBall();
 
@@ -85,7 +85,7 @@ describe("class Ball", () => {
 
   describe("constructor()", () => {
     it("throws RangeError if radius is zero", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = createBilliardsTable();
       const coordinate = createCoordinate();
@@ -99,7 +99,7 @@ describe("class Ball", () => {
     });
 
     it("throws RangeError if radius is a negative number", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = createBilliardsTable();
       const coordinate = createCoordinate();
@@ -113,7 +113,7 @@ describe("class Ball", () => {
     });
 
     it("ball is an instance of Ball class", () => {
-      expect.assertions(1);
+      expect.hasAssertions();
 
       const billiardsTable = createBilliardsTable();
       const coordinate = createCoordinate();
